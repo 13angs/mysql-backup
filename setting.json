@@ -1,0 +1,20 @@
+{
+    "servers": [
+        {
+            "name": "eng-api-db",
+            "port": 3306,
+            "databases": [
+                "EngCartService",
+                "EngUserService"
+            ]
+        }
+    ],
+    "actions": [
+        "backup",
+        "restore"
+    ],
+    "dest": {
+        "backup": "./data/backup",
+        "restore": "./data/restore"
+    }
+}
