@@ -1,12 +1,13 @@
-from array import array
-from difflib import restore
 import json
 import string
 
 class Settings:
     settings = []
-    backup_path = ''
+    single_backup = ''
+    multiple_backup = ''
     restore_path = ''
+    logs_path = ''
+    backup_type = []
 
     def __init__(self) -> None:
         pass
@@ -15,8 +16,11 @@ class Settings:
         with open(path, 'r', encoding="utf8") as f:
             self.settings = json.load(f)
         
-        self.backup_path = self.settings['dest']['backup']
+        self.single_backup = self.settings['dest']['single_backup']
+        self.multiple_backup = self.settings['dest']['multiple_backup']
         self.restore_path = self.settings['dest']['restore']
+        self.logs_path = self.settings['dest']['logs']
+        self.backup_type = self.settings['backup_type']
 
     def select_action(self) -> string:
         # load the setting.json
@@ -58,4 +62,17 @@ class Settings:
         selected_action = int(input('Choose the database: '))
         
         return databases[selected_action-1]
+    
+    def select_backup_type(self):
+        print('\n=========================================================')
+        print('How would you save the db: ')
+
+        selected_type = 0
+
+        for ind in range(1, len(self.backup_type)+1):
+            print(f"{ind}. {self.backup_type[ind-1]}")
+
+        selected_type = int(input('Choose the database: '))
+        
+        return self.backup_type[selected_type-1]
 

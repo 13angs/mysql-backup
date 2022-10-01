@@ -16,7 +16,7 @@
     ],
     "dest": {
         "single_backup": "./data/backup/single",
-        "multiple_backup": "./data/backup/multiple",
+        "multiple_backup": "./data/backup/single",
         "restore": "./data/restore",
         "logs": "./data/logs"
     },

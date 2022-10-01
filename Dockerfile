@@ -18,6 +18,7 @@ COPY ./ ./
 
 # # run as 13angs
 # USER 13angs
+ENV TZ=Asia/Bangkok
 
 VOLUME [ "/usr/src/app/data/backup" ]
 VOLUME [ "/usr/src/app/data/restore" ]

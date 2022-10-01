@@ -1,0 +1,27 @@
+[
+    {
+        "id": "backup_id",
+        "server": "db_server",
+        "database": "db_name",
+        "created_date": "date_created",
+        "status": "success",
+        "action": "backup_or_restore",
+        "backup_type": "single",
+        "dest": "path_where_the_file_is_located",
+    }
+]
+
+[
+    {
+        "id": "restore_id",
+        "backup_id": "restore_id",
+        "server": "db_server",
+        "database": "db_name",
+        "created_date": "date_created",
+        "status": "success",
+        "action": "backup_or_restore",
+        "backup_type": "single",
+        "dest": "path_where_the_file_is_located",
+    }
+]
+
