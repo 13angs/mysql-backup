@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql-backup-devcon:
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+      # Update 'VARIANT' to pick a .NET Core version: 3.1, 6.0
+      # Append -bullseye or -focal to pin to an OS version
+      args:
+        - "VARIANT=3.10-bullseye"
+        - "NODE_VERSION=lts/*"
+    container_name: mysql-backup-devcon-${OWNER}
+
+    volumes:
+      - ..:/workspaces/mysql-backup:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    command: sleep infinity
+
+    networks:
+      - eng-ssl-swarm-network
+
+networks:
+  eng-ssl-swarm-network:
+    external: true
+    name: eng-ssl-swarm-network

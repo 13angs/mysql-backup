@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mysql-backup:
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    image: 13angs/mysql-backup:latest
+
+    volumes:
+      - type: bind
+        source: ./data/backup
+        target: /usr/src/app/data/backup
+
+    networks:
+      - eng-ssl-swarm-network
+
+networks:
+  eng-ssl-swarm-network:
+    external: true
+    name: eng-ssl-swarm-network

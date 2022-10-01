@@ -3,7 +3,9 @@ FROM python:3.9.13-alpine3.16
 
 WORKDIR /usr/src/app
 
-RUN apk add docker
+# install the required packages
+RUN apk update && \
+    apk add mariadb-client
 
 COPY requirements.txt ./
 
@@ -16,5 +18,8 @@ COPY ./ ./
 
 # # run as 13angs
 # USER 13angs
+
+VOLUME [ "/usr/src/app/data/backup" ]
+VOLUME [ "/usr/src/app/data/restore" ]
 
 CMD [ "python3", "./main.py" ]

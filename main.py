@@ -7,13 +7,13 @@ def main():
     action = settings.select_action()
 
     # setup the db info
-    container_name = 'eng-api-db'
+    host = 'eng-api-db'
     password = 'P@ssw0rd'
     user = 'root'
     database = 'WhappyvDb'
 
     connection = DbConnection(
-        container_name=container_name,
+        host=host,
         password=password,
         user=user,
         database=database,
@@ -21,7 +21,7 @@ def main():
 
     if action == "backup":
         server_name, server = settings.select_server()
-        connection.container_name = server_name
+        connection.host = server_name
 
         db = settings.select_db(server)
         connection.database = db
