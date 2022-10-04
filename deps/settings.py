@@ -7,6 +7,7 @@ class Settings:
     multiple_backup = ''
     restore_path = ''
     logs_path = ''
+    backup_path = ''
     backup_type = []
 
     def __init__(self) -> None:
@@ -18,6 +19,7 @@ class Settings:
         
         self.single_backup = self.settings['dest']['single_backup']
         self.multiple_backup = self.settings['dest']['multiple_backup']
+        self.backup_path = self.settings['dest']['backup']
         self.restore_path = self.settings['dest']['restore']
         self.logs_path = self.settings['dest']['logs']
         self.backup_type = self.settings['backup_type']

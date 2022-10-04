@@ -18,7 +18,7 @@ class Logging:
         print('\n=========================================================')
         print(f'Append {self.log_detail["database"]} to the log...')
     
-    def save_change(self, action):
+    def save_change(self):
         # save to json file
         print(f'Saving the log to {self.created_date}.json...')
     

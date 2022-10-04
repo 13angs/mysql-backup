@@ -30,7 +30,7 @@ def main():
         # select which db to backup
         db = settings.select_db(server)
         connection.database = db
-        bk_path = settings.single_backup
+        bk_path = settings.backup_path
 
         # single
         if selected_type == 'single':

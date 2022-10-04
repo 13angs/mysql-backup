@@ -119,8 +119,9 @@ def restore_action(backup_path, restore_path, backup_logs, restore_logs):
 
 
 
-if action == 'backup':
-    backup_action(backup_log_file_path, backup_logs)
+if __name__ == '__main__':
+    if action == 'backup':
+        backup_action(backup_log_file_path, backup_logs)
 
-elif action == 'restore':
-    restore_action(backup_log_file_path, restore_log_file_path, backup_logs, restore_logs)
+    elif action == 'restore':
+        restore_action(backup_log_file_path, restore_log_file_path, backup_logs, restore_logs)

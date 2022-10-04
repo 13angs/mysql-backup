@@ -23,7 +23,7 @@ class DbConnection:
     def backup(self, bk_path, multiple=False) -> None:
         dt_now = datetime.datetime.now()
         formatted_dt = dt_now.strftime(self.dt_format)
-        full_backup_path = os.path.join(bk_path, self.database, formatted_dt , self.database)
+        full_backup_path = os.path.join(bk_path, formatted_dt , self.database)
 
         # init the log
         logging = Logging()
@@ -35,10 +35,10 @@ class DbConnection:
         else:
             # f'docker exec -i {self.host} ' + \
             # check if directory exist if not create it
-            sv_dir_path = os.path.join(bk_path, self.database)
-            dt_dir_path = os.path.join(bk_path, self.database, formatted_dt)
-            if not os.path.exists(sv_dir_path):
-                os.mkdir(sv_dir_path)
+            # sv_dir_path = os.path.join(bk_path, self.database)
+            dt_dir_path = os.path.join(bk_path, formatted_dt)
+            # if not os.path.exists(sv_dir_path):
+            #     os.mkdir(sv_dir_path)
             if not os.path.exists(dt_dir_path):
                 os.mkdir(dt_dir_path)
 
